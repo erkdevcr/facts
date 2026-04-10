@@ -2009,7 +2009,8 @@ function openDD(idx, dispEl){
   ddSearch.value='';
   renderDDOptions('');
   ddPanel.classList.add('show');
-  setTimeout(()=>ddSearch.focus(),50);
+  // Only auto-focus search on desktop (avoids keyboard popup on mobile)
+  if(!('ontouchstart' in window))setTimeout(()=>ddSearch.focus(),50);
 }
 
 function renderDDOptions(q){
